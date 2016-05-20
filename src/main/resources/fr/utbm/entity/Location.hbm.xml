@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="fr.utbm.entity.Location" table="LOCATION"/>
+  <id name="id_location" type="int">
+      <column name="ID_LOCATION"/>
+      <generator class="identity"/>
+  </id>
+  <property name="city" type="string">
+      <column length="32" name="CITY" not-null="true"/>
+  </property>
+  
+</hibernate-mapping>
