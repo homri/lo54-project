@@ -2,8 +2,11 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
   <class name="fr.utbm.entity.Course" table="COURSE"/>
-  <id name="id_location" type="int">
-      <column name="ID_LOCATION"/>
+  <id name="course_code" type="int">
+      <column name="COURSE_CODE"/>
       <generator class="identity"/>
   </id>
+  <property name="title" type="string">
+      <column length="32" name="TITLE" not-null="true"/>
+  </property>
 </hibernate-mapping>
