@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class name="fr.utbm.entity.Course" table="COURSE"/>
-  <id name="course_code" type="int">
-      <column name="COURSE_CODE"/>
-      <generator class="identity"/>
+  <class name="fr.utbm.entity.Course" optimistic-lock="version" schema="lo54_bdd" table="COURSE">
+  <id name="course_code">
+      <column name="COURSE_CODE" length="32" not-null="true"/>
+      <generator class="assigned"/>
   </id>
-  <property name="title" type="string">
+  <set name="course_sessions" cascade="all">
+         <key column="COURSE_CODE"/>
+         <one-to-many class="fr.utbm.entity.Course_session"/>
+  </set>
+  <property name="title">
       <column length="32" name="TITLE" not-null="true"/>
   </property>
+  </class>
 </hibernate-mapping>

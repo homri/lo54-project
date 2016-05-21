@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class name="fr.utbm.entity.Location" table="LOCATION"/>
+  <class name="fr.utbm.entity.Location" optimistic-lock="version" schema="lo54_bdd" table="LOCATION">
   <id name="id_location" type="int">
       <column name="ID_LOCATION"/>
       <generator class="identity"/>
   </id>
-  <property name="city" type="string">
+  <set name="course_sessions" cascade="all">
+         <key column="ID_LOCATION"/>
+         <one-to-many class="fr.utbm.entity.Course_session"/>
+  </set>
+  <property name="city">
       <column length="32" name="CITY" not-null="true"/>
   </property>
-  
+  </class>
 </hibernate-mapping>

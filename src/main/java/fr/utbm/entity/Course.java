@@ -5,13 +5,16 @@
  */
 package fr.utbm.entity;
 
+import java.util.Set;
+
 /**
  *
  * @author khalil
  */
 public class Course {
-    String course_code;
-    String title;
+    private String course_code;
+    private String title;
+    private Set course_sessions;
 
     public String getCourse_code() {
         return course_code;
@@ -21,11 +24,19 @@ public class Course {
         return title;
     }
 
+    public Set getCourse_sessions() {
+        return course_sessions;
+    }
+
     public void setCourse_code(String course_code) {
         this.course_code = course_code;
     }
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public void setCourse_sessions(Set course_sessions) {
+        this.course_sessions = course_sessions;
     }
 }

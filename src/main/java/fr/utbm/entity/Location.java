@@ -5,13 +5,16 @@
  */
 package fr.utbm.entity;
 
+import java.util.Set;
+
 /**
  *
  * @author khalil
  */
 public class Location {
-    int id_location;
-    String city;
+    private int id_location;
+    private String city;
+    private Set course_sessions;
 
     public int getId_location() {
         return id_location;
@@ -21,12 +24,20 @@ public class Location {
         return city;
     }
 
+    public Set getCourse_sessions() {
+        return course_sessions;
+    }
+
     public void setId_location(int id_location) {
         this.id_location = id_location;
     }
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public void setCourse_sessions(Set course_sessions) {
+        this.course_sessions = course_sessions;
     }
     
 }

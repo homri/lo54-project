@@ -6,27 +6,29 @@
 package fr.utbm.entity;
 
 import java.util.Date;
+import java.util.Set;
 
 /**
  *
  * @author khalil
  */
 public class Course_session {
-    int course_session_id;
-    int id_location;
-    String course_code;
-    Date start_date;
-    Date end_date;
+    private int course_session_id;
+    private Location id_location;
+    private Course course_code;
+    private Date start_date;
+    private Date end_date;
+    private Set clients;
 
     public int getCourse_session_id() {
         return course_session_id;
     }
 
-    public int getId_location() {
+    public Location getId_location() {
         return id_location;
     }
 
-    public String getCourse_code() {
+    public Course getCourse_code() {
         return course_code;
     }
 
@@ -38,15 +40,19 @@ public class Course_session {
         return end_date;
     }
 
+    public Set getClients() {
+        return clients;
+    }
+
     public void setCourse_session_id(int course_session_id) {
         this.course_session_id = course_session_id;
     }
 
-    public void setId_location(int id_location) {
+    public void setId_location(Location id_location) {
         this.id_location = id_location;
     }
 
-    public void setCourse_code(String course_code) {
+    public void setCourse_code(Course course_code) {
         this.course_code = course_code;
     }
 
@@ -57,5 +63,8 @@ public class Course_session {
     public void setEnd_date(Date end_date) {
         this.end_date = end_date;
     }
-    
+
+    public void setClients(Set clients) {
+        this.clients = clients;
+    }
 }

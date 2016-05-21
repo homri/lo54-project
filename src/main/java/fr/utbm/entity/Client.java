@@ -10,19 +10,31 @@ package fr.utbm.entity;
  * @author khalil
  */
 public class Client {
-    int client_id;
-    int course_session_id;
-    String lastname;
-    String firstname;
-    String adress;
-    String phone;
-    String email;
+    private int client_id;
+    private Course_session course_session_id;
+    private String lastname;
+    private String firstname;
+    private String adress;
+    private String phone;
+    private String email;
+
+    public Client() {
+    }
+
+    public Client(Course_session course_session_id, String lastname, String firstname, String adress, String phone, String email) {
+        this.course_session_id = course_session_id;
+        this.lastname = lastname;
+        this.firstname = firstname;
+        this.adress = adress;
+        this.phone = phone;
+        this.email = email;
+    }
 
     public int getClient_id() {
         return client_id;
     }
 
-    public int getCourse_session_id() {
+    public Course_session getCourse_session_id() {
         return course_session_id;
     }
 
@@ -50,7 +62,7 @@ public class Client {
         this.client_id = client_id;
     }
 
-    public void setCourse_session_id(int course_session_id) {
+    public void setCourse_session_id(Course_session course_session_id) {
         this.course_session_id = course_session_id;
     }
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="fr.utbm.entity.Course_session" optimistic-lock="version" schema="lo54_bdd" table="COURSE_SESSION">
+  <id name="course_session_id" type="int">
+      <column name="COURSE_SESSION_ID"/>
+      <generator class="identity"/>
+  </id>
+  <set name="clients" inverse="true" cascade="all">
+         <key column="COURSE_SESSION_ID"/>
+         <one-to-many class="fr.utbm.entity.Client"/>
+  </set>
+  <many-to-one name="id_location" column="Id_LOCATION" class="fr.utbm.entity.Location" cascade="all"/>
+  <many-to-one name="course_code" column="COURSE_CODE" class="fr.utbm.entity.Course" cascade="all"/>
+  <property name="start_date" type="date">
+      <column length="10" name="START_DATE" not-null="true"/>
+  </property>
+  <property name="end_date" type="date">
+      <column length="10" name="END_DATE" not-null="true"/>
+  </property>
+  </class>
+</hibernate-mapping>

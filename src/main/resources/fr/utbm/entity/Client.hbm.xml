@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="fr.utbm.entity.Client" optimistic-lock="version" schema="lo54_bdd" table="CLIENT">
+  <id name="client_id" type="int">
+      <column name="CLIENT_ID"/>
+      <generator class="identity"/>
+  </id>
+  <many-to-one name="course_session_id" column="COURSE_SESSION_Id" class="fr.utbm.entity.Course_session" cascade="all"/>
+  <property name="lastname" type="character">
+      <column length="32" name="LASTNAME" not-null="true"/>
+  </property>
+  <property name="firstname" type="character">
+      <column length="32" name="FIRSTNAME" not-null="true"/>
+  </property>
+  <property name="adress" type="character">
+      <column length="32" name="ADRESS" not-null="true"/>
+  </property>
+  <property name="phone" type="character">
+      <column length="32" name="PHONE" not-null="true"/>
+  </property>
+  <property name="email" type="character">
+      <column length="32" name="EMAIL" not-null="false"/>
+  </property>
+  </class>
+</hibernate-mapping>
