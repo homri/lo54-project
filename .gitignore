@@ -9,4 +9,4 @@ buildNumber.properties
 .mvn/timing.properties
 .idea/
 Project.iml
-hibernate.cfg.xml
+src/main/resources/hibernate.cfg.xml
