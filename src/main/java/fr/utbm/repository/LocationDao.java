@@ -20,10 +20,10 @@ import org.hibernate.SessionException;
  * @author khalil
  */
 public class LocationDao {
+
     public Location getLocation (int id_location){
-        Session session =null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
         Location lc = null;
-     session = HibernateUtil.getSessionFactory().openSession();
 	    try {
 	        session.beginTransaction();
 	        lc = (Location) session.get(Location.class, id_location);
@@ -36,56 +36,57 @@ public class LocationDao {
 	        if(session.getTransaction() != null) { 
 	            try {
 	                session.getTransaction().rollback();	
-	            }catch(HibernateException he2) {he2.printStackTrace(); }
+	            } catch(HibernateException he2) {
+					he2.printStackTrace();
+				}
 	        }
 		}
 		finally {
 	        if(session != null) {
 	            try {
-                        session.close();
-                        
-                    }
-                    catch(SessionException se){
-                    se.printStackTrace();
-                    }
-                }
-                return lc;
-                }
-            }
-    public List<Location> getAllLocations (){
-        Session session =null;
+					session.close();
+				} catch(SessionException se) {
+					se.printStackTrace();
+				}
+			}
+		}
+		return lc;
+	}
+
+
+    public List<Location> getAllLocations () {
+        Session session = HibernateUtil.getSessionFactory().openSession();
         List<Location> locationList=null;
-     session = HibernateUtil.getSessionFactory().openSession();
+
 	    try {
 	        session.beginTransaction();
 	        Query query = session.createQuery("from Location");
-                locationList = query.list();
-                for(Iterator iterator1 = locationList.iterator();iterator1.hasNext();){
-        Location lc = (Location)iterator1.next();
+			locationList = query.list();
+			for(Iterator iterator1 = locationList.iterator();iterator1.hasNext();) {
+        		Location lc = (Location)iterator1.next();
                 Hibernate.initialize(lc.getCourse_sessions());
-                }
-                session.flush(); 
+			}
+			session.flush();
 	        session.getTransaction().commit();
-		}
-		catch (HibernateException he) {
+		} catch (HibernateException he) {
 	        he.printStackTrace();
 	        if(session.getTransaction() != null) { 
 	            try {
 	                session.getTransaction().rollback();	
-	            }catch(HibernateException he2) {he2.printStackTrace(); }
+	            } catch(HibernateException he2) {
+					he2.printStackTrace();
+				}
 	        }
 		}
 		finally {
 	        if(session != null) {
 	            try {
-                        session.close();
-                        
-                    }
-                    catch(SessionException se){
+					session.close();
+				} catch(SessionException se) {
                     se.printStackTrace();
-                    }
-                }
-                return locationList;
-                }
-            }
+				}
+			}
+		}
+		return locationList;
+	}
 }
