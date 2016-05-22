@@ -21,6 +21,14 @@ public class Client {
     public Client() {
     }
 
+    public Client(Course_session course_session_id, String lastname, String firstname, String adress, String phone) {
+        this.course_session_id = course_session_id;
+        this.lastname = lastname;
+        this.firstname = firstname;
+        this.adress = adress;
+        this.phone = phone;
+    }
+
     public Client(Course_session course_session_id, String lastname, String firstname, String adress, String phone, String email) {
         this.course_session_id = course_session_id;
         this.lastname = lastname;

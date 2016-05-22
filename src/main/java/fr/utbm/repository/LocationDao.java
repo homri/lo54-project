@@ -20,7 +20,7 @@ import org.hibernate.SessionException;
  * @author khalil
  */
 public class LocationDao {
-    public Location getInformation (int id_location){
+    public Location getLocation (int id_location){
         Session session =null;
         Location lc = null;
      session = HibernateUtil.getSessionFactory().openSession();
@@ -52,7 +52,7 @@ public class LocationDao {
                 return lc;
                 }
             }
-    public List<Location> getInformationHql (){
+    public List<Location> getAllLocations (){
         Session session =null;
         List<Location> locationList=null;
      session = HibernateUtil.getSessionFactory().openSession();

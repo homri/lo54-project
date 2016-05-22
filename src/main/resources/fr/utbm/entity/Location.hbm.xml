@@ -10,7 +10,7 @@
          <key column="ID_LOCATION"/>
          <one-to-many class="fr.utbm.entity.Course_session"/>
   </set>
-  <property name="city">
+  <property name="city" type="string">
       <column length="32" name="CITY" not-null="true"/>
   </property>
   </class>

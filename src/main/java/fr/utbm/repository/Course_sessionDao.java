@@ -20,7 +20,7 @@ import org.hibernate.SessionException;
  * @author khalil
  */
 public class Course_sessionDao {
-    public Course_session getInformation (int id){
+    public Course_session getCourse_session (int id){
         Session session =null;
         Course_session crs = null;
      session = HibernateUtil.getSessionFactory().openSession();
@@ -54,7 +54,7 @@ public class Course_sessionDao {
                 return crs;
                 }
             }
-    public List<Course_session> getInformationHql (){
+    public List<Course_session> getAllCourse_sessions (){
         Session session =null;
         List<Course_session> course_sessionList=null;
      session = HibernateUtil.getSessionFactory().openSession();

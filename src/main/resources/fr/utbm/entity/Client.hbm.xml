@@ -7,19 +7,19 @@
       <generator class="identity"/>
   </id>
   <many-to-one name="course_session_id" column="COURSE_SESSION_Id" class="fr.utbm.entity.Course_session" cascade="all"/>
-  <property name="lastname" type="character">
+  <property name="lastname" type="string">
       <column length="32" name="LASTNAME" not-null="true"/>
   </property>
-  <property name="firstname" type="character">
+  <property name="firstname" type="string">
       <column length="32" name="FIRSTNAME" not-null="true"/>
   </property>
-  <property name="adress" type="character">
+  <property name="adress" type="string">
       <column length="32" name="ADRESS" not-null="true"/>
   </property>
-  <property name="phone" type="character">
-      <column length="32" name="PHONE" not-null="true"/>
+  <property name="phone" type="string">
+      <column length="13" name="PHONE" not-null="true"/>
   </property>
-  <property name="email" type="character">
+  <property name="email" type="string">
       <column length="32" name="EMAIL" not-null="false"/>
   </property>
   </class>

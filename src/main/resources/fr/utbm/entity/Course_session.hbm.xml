@@ -13,10 +13,10 @@
   <many-to-one name="id_location" column="Id_LOCATION" class="fr.utbm.entity.Location" cascade="all"/>
   <many-to-one name="course_code" column="COURSE_CODE" class="fr.utbm.entity.Course" cascade="all"/>
   <property name="start_date" type="date">
-      <column length="10" name="START_DATE" not-null="true"/>
+      <column length="7" name="START_DATE" not-null="true"/>
   </property>
   <property name="end_date" type="date">
-      <column length="10" name="END_DATE" not-null="true"/>
+      <column length="7" name="END_DATE" not-null="true"/>
   </property>
   </class>
 </hibernate-mapping>
