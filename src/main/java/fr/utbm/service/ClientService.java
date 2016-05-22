@@ -13,8 +13,10 @@ import fr.utbm.repository.ClientDao;
  * @author khalil
  */
 public class ClientService {
+
+    private ClientDao cld = new ClientDao();
+
     public void insertClientService(Client cl){
-    ClientDao cld = new ClientDao();
         cld.insertClient(cl);
     }
 }

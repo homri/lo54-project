@@ -21,74 +21,72 @@ import org.hibernate.SessionException;
  */
 public class Course_sessionDao {
     public Course_session getCourse_session (int id){
-        Session session =null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
         Course_session crs = null;
-     session = HibernateUtil.getSessionFactory().openSession();
 	    try {
 	        session.beginTransaction();
-	        crs= (Course_session) session.get(Course_session.class, id);
-                Hibernate.initialize(crs.getId_location());
-                Hibernate.initialize(crs.getCourse_code());
-                Hibernate.initialize(crs.getClients());
-                session.flush(); 
+			crs = (Course_session) session.get(Course_session.class, id);
+			Hibernate.initialize(crs.getId_location());
+			Hibernate.initialize(crs.getCourse_code());
+			session.flush();
 	        session.getTransaction().commit();
-		}
-		catch (HibernateException he) {
+		} catch (HibernateException he) {
 	        he.printStackTrace();
 	        if(session.getTransaction() != null) { 
 	            try {
 	                session.getTransaction().rollback();	
-	            }catch(HibernateException he2) {he2.printStackTrace(); }
+	            } catch(HibernateException he2) {
+					he2.printStackTrace();
+				}
 	        }
 		}
 		finally {
 	        if(session != null) {
 	            try {
-                        session.close();
-                        
-                    }
-                    catch(SessionException se){
-                    se.printStackTrace();
-                    }
-                }
-                return crs;
-                }
-            }
+					session.close();
+				} catch(SessionException se) {
+					se.printStackTrace();
+				}
+			}
+		}
+		return crs;
+	}
+
+
     public List<Course_session> getAllCourse_sessions (){
-        Session session =null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
         List<Course_session> course_sessionList=null;
-     session = HibernateUtil.getSessionFactory().openSession();
+
 	    try {
 	        session.beginTransaction();
 	        Query query = session.createQuery("from Course_session");
-                course_sessionList = query.list();
-                for(Iterator iterator1 = course_sessionList.iterator();iterator1.hasNext();){
-        Course_session crs = (Course_session)iterator1.next();
-                Hibernate.initialize(crs.getId_location());
-                Hibernate.initialize(crs.getCourse_code());
-                Hibernate.initialize(crs.getClients());}
-                session.flush(); 
+			course_sessionList = query.list();
+                for(Iterator iterator1 = course_sessionList.iterator();iterator1.hasNext();) {
+					Course_session crs = (Course_session)iterator1.next();
+					Hibernate.initialize(crs.getId_location());
+					Hibernate.initialize(crs.getCourse_code());
+				}
+			session.flush();
 	        session.getTransaction().commit();
-		}
-		catch (HibernateException he) {
+		} catch (HibernateException he) {
 	        he.printStackTrace();
 	        if(session.getTransaction() != null) { 
 	            try {
 	                session.getTransaction().rollback();	
-	            }catch(HibernateException he2) {he2.printStackTrace(); }
+	            } catch(HibernateException he2) {
+					he2.printStackTrace();
+				}
 	        }
 		}
 		finally {
 	        if(session != null) {
 	            try {
-                        session.close();
-                        
-                    }
-                    catch(SessionException se){
-                    se.printStackTrace();
-                    }
-                }
-                return course_sessionList;
-                }
-            }
+					session.close();
+				} catch(SessionException se) {
+					se.printStackTrace();
+				}
+			}
+		}
+		return course_sessionList;
+	}
 }

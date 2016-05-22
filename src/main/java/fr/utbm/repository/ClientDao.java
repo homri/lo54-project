@@ -16,6 +16,7 @@ import org.hibernate.SessionException;
  * @author khalil
  */
 public class ClientDao {
+
     public void insertClient(Client cl){
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {

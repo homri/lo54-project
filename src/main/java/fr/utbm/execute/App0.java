@@ -37,7 +37,7 @@ public class App0 {
         CourseDao crd = new CourseDao();
         //List<Course> listecourses = crd.getAllCourses();
         //List<Course> listecourses = crd.getAllCoursesPerKeyWord("z");
-        Date d= new Date();
+        Date d;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         try {
@@ -47,14 +47,12 @@ public class App0 {
         	if(listecourses.size()>0) {
         		System.out.println(listecourses.size()+" : "+listecourses.get(0).getTitle());
 			}
-        
+
         } catch (ParseException ex) {
             Logger.getLogger(App0.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        /*Location lcn = new Location();
-        lcn.setCity("Belfort");
-        lcn.setId_location(1);
+        /*Location lcn = new Location("Belfort", 1);
         
         List<Course> listecourses = crd.getAllCoursesAtLocation(lcn);
         System.out.println(listecourses.size());

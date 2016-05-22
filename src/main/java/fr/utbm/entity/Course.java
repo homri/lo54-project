@@ -16,6 +16,14 @@ public class Course {
     private String title;
     private Set course_sessions;
 
+    public Course() {}
+
+    public Course(String course_code, String title, Set course_sessions) {
+        this.title = title;
+        this.course_code = course_code;
+        this.course_sessions = course_sessions;
+    }
+
     public String getCourse_code() {
         return course_code;
     }

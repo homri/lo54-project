@@ -16,6 +16,13 @@ public class Location {
     private String city;
     private Set course_sessions;
 
+    public Location() {}
+
+    public Location(String city, Set course_sessions) {
+        this.city = city;
+        this.course_sessions = course_sessions;
+    }
+
     public int getId_location() {
         return id_location;
     }

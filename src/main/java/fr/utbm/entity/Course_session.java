@@ -18,7 +18,15 @@ public class Course_session {
     private Course course_code;
     private Date start_date;
     private Date end_date;
-    private Set clients;
+
+    public Course_session() {}
+
+    public Course_session(Date start_date, Date end_date, Location id_location, Course course_code) {
+		this.start_date = start_date;
+		this.end_date = end_date;
+		this.id_location = id_location;
+		this.course_code = course_code;
+    }
 
     public int getCourse_session_id() {
         return course_session_id;
@@ -40,10 +48,6 @@ public class Course_session {
         return end_date;
     }
 
-    public Set getClients() {
-        return clients;
-    }
-
     public void setCourse_session_id(int course_session_id) {
         this.course_session_id = course_session_id;
     }
@@ -62,9 +66,5 @@ public class Course_session {
 
     public void setEnd_date(Date end_date) {
         this.end_date = end_date;
-    }
-
-    public void setClients(Set clients) {
-        this.clients = clients;
     }
 }
