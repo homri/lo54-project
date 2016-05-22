@@ -10,3 +10,12 @@ buildNumber.properties
 .idea/
 Project.iml
 src/main/resources/hibernate.cfg.xml
+
+# NetBeans specific #
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
