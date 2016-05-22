@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class name="fr.utbm.entity.Client" optimistic-lock="version" schema="lo54_bdd" table="CLIENT">
+  <class name="fr.utbm.entity.Client" optimistic-lock="version" schema="lo54_database" table="CLIENT">
   <id name="client_id" type="int">
       <column name="CLIENT_ID"/>
       <generator class="identity"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class name="fr.utbm.entity.Course_session" optimistic-lock="version" schema="lo54_bdd" table="COURSE_SESSION">
+  <class name="fr.utbm.entity.Course_session" optimistic-lock="version" schema="lo54_database" table="COURSE_SESSION">
   <id name="course_session_id" type="int">
       <column name="COURSE_SESSION_ID"/>
       <generator class="identity"/>

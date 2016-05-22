@@ -28,34 +28,46 @@ public class App0 {
         /**
          * le travail dans la servlet pour ajouter un client
          */
-        //ClientController clc = new ClientController();
-        //clc.insertClientControllerWithoutEmail(1, "lahmade","felix","2 rue Sadeline","0782524183");
-        //HibernateUtil.getSessionFactory().close();
-        /*----------*/
+        /*
+        ClientController clc = new ClientController();
+	 	clc.insertClientControllerWithoutEmail(1, "lahmade","felix","2 rue Sadeline","0782524183");
+        HibernateUtil.getSessionFactory().close();
+        */
+
         CourseDao crd = new CourseDao();
         //List<Course> listecourses = crd.getAllCourses();
         //List<Course> listecourses = crd.getAllCoursesPerKeyWord("z");
-        /*Date d= new Date();
+        Date d= new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
         try {
             d=simpleDateFormat.parse("2016-06-09");
-         List<Course> listecourses = crd.getAllCoursesAtDate(d);
-         System.out.println(listecourses.size());
-        if(listecourses.size()>0){System.out.println(listecourses.size()+" : "+listecourses.get(0).getTitle());}
+         	List<Course> listecourses = crd.getAllCoursesAtDate(d);
+         	System.out.println(listecourses.size());
+        	if(listecourses.size()>0) {
+        		System.out.println(listecourses.size()+" : "+listecourses.get(0).getTitle());
+			}
         
         } catch (ParseException ex) {
             Logger.getLogger(App0.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-       /* Location lcn = new Location();
+        }
+
+        /*Location lcn = new Location();
         lcn.setCity("Belfort");
         lcn.setId_location(1);
         
         List<Course> listecourses = crd.getAllCoursesAtLocation(lcn);
         System.out.println(listecourses.size());
-        if(listecourses.size()>0){System.out.println(listecourses.size()+" : "+listecourses.get(0).getTitle());}
-        /*for(Iterator iterator1 = listecourses.get(0).getCourse_sessions().iterator();iterator1.hasNext();){
+
+        if(listecourses.size()>0) {
+            System.out.println(listecourses.size()+" : "+listecourses.get(0).getTitle());
+        }
+
+        for(Iterator iterator1 = listecourses.get(0).getCourse_sessions().iterator();iterator1.hasNext();) {
             Course_session a=(Course_session)iterator1.next();
-            System.out.println(a.getId_location().getCity());}*/
+            System.out.println(a.getId_location().getCity());
+        }
         HibernateUtil.getSessionFactory().close();
+        */
     }
 }
