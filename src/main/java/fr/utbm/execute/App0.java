@@ -16,6 +16,7 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,7 +42,7 @@ public class App0 {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         try {
-            d=simpleDateFormat.parse("2016-06-09");
+            d=simpleDateFormat.parse("2016-05-01");
          	List<Course> listecourses = crd.getAllCoursesAtDate(d);
          	System.out.println(listecourses.size());
         	if(listecourses.size()>0) {
@@ -52,7 +53,7 @@ public class App0 {
             Logger.getLogger(App0.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        /*Location lcn = new Location("Belfort", 1);
+        /*Location lcn = new Location("Montbéliard", 1);
         
         List<Course> listecourses = crd.getAllCoursesAtLocation(lcn);
         System.out.println(listecourses.size());
