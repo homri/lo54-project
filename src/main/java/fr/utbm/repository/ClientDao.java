@@ -37,7 +37,7 @@ public class ClientDao {
 		finally {
             if(session != null) {
                 try {
-                    session.close();    
+                    session.close();
                 }
                 catch(SessionException se){
                     se.printStackTrace();
