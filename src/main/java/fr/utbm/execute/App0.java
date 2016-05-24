@@ -6,6 +6,8 @@
 package fr.utbm.execute;
 
 import fr.utbm.controller.ClientController;
+import fr.utbm.controller.CourseController;
+import fr.utbm.controller.Course_sessionController;
 import fr.utbm.entity.Course;
 import fr.utbm.entity.Course_session;
 import fr.utbm.entity.Location;
@@ -35,10 +37,15 @@ public class App0 {
         HibernateUtil.getSessionFactory().close();
         */
 
-        CourseDao crd = new CourseDao();
+		Course_sessionController course_sessionController = new Course_sessionController();
+		for (Course_session course_session : course_sessionController.getAllCourse_session()) {
+			System.out.println(course_session.getCourse_code().getCourse_code() + " - " + course_session.getCourse_code().getTitle());
+		}
+
+        //CourseDao crd = new CourseDao();
         //List<Course> listecourses = crd.getAllCourses();
         //List<Course> listecourses = crd.getAllCoursesPerKeyWord("z");
-        Date d;
+        /*Date d;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         try {
@@ -51,7 +58,7 @@ public class App0 {
 
         } catch (ParseException ex) {
             Logger.getLogger(App0.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
 
         /*Location lcn = new Location("Montbéliard", 1);
         

@@ -18,6 +18,11 @@ public class Course {
 
     public Course() {}
 
+    public Course(String course_code, String title) {
+        this.title = title;
+        this.course_code = course_code;
+    }
+
     public Course(String course_code, String title, Set course_sessions) {
         this.title = title;
         this.course_code = course_code;

@@ -25,20 +25,30 @@ import org.hibernate.SessionException;
  */
 public class CourseDao {
 
-	private void functionIterator(List<Course> courseList) {
-		for(Iterator iterator1 = courseList.iterator();iterator1.hasNext();) {
-			Course cr = (Course)iterator1.next();
-			Hibernate.initialize(cr.getCourse_sessions());
+	public void insertCourseDAO(Course crs) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			session.beginTransaction();
+			session.save(crs);
+			session.flush() ;
+			session.getTransaction().commit();
+		} catch (HibernateException he) {
+			he.printStackTrace();
+			if(session.getTransaction() != null) {
+				try {
+					session.getTransaction().rollback();
+				} catch(HibernateException he2) {
+					he2.printStackTrace();
+				}
+			}
+		}
 
-			for(Iterator iterator2 = cr.getCourse_sessions().iterator();iterator2.hasNext();) {
-				Course_session crs = (Course_session) iterator2.next();
-				Hibernate.initialize(crs.getCourse_code());
-				Hibernate.initialize(crs.getId_location());
-				Hibernate.initialize(crs.getClients());
-
-				for (Iterator iterator3 = crs.getClients().iterator();iterator3.hasNext();){
-					Client cl =  (Client) iterator3.next();
-					Hibernate.initialize(cl.getCourse_session_id());
+		finally {
+			if(session != null) {
+				try {
+					session.close();
+				} catch(SessionException se){
+					se.printStackTrace();
 				}
 			}
 		}
@@ -193,5 +203,24 @@ public class CourseDao {
 			}
 		}
 		return courseList;
+	}
+
+	private void functionIterator(List<Course> courseList) {
+		for(Iterator iterator1 = courseList.iterator();iterator1.hasNext();) {
+			Course cr = (Course)iterator1.next();
+			Hibernate.initialize(cr.getCourse_sessions());
+
+			for(Iterator iterator2 = cr.getCourse_sessions().iterator();iterator2.hasNext();) {
+				Course_session crs = (Course_session) iterator2.next();
+				Hibernate.initialize(crs.getCourse_code());
+				Hibernate.initialize(crs.getId_location());
+				Hibernate.initialize(crs.getClients());
+
+				for (Iterator iterator3 = crs.getClients().iterator();iterator3.hasNext();){
+					Client cl =  (Client) iterator3.next();
+					Hibernate.initialize(cl.getCourse_session_id());
+				}
+			}
+		}
 	}
 }
