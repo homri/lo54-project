@@ -52,9 +52,10 @@ public class FormationsServlet extends HttpServlet {
 				out.println("<a href='http://localhost:8080/inscription?id_session="
 						+ course_session.getCourse_session_id() + "'>Du "
 						+ formater.format(course_session.getStart_date()) + " au "
-						+ formater.format(course_session.getEnd_date()) + "</a>");
+						+ formater.format(course_session.getEnd_date()) + "</a> à "
+						+ course_session.getId_location().getCity() + "<br>");
 			}
-			out.println("<br><br>");
+			out.println("<br>");
 		}
 
 		out.println( "</BODY>" );

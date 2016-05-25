@@ -9,7 +9,7 @@
 
         <p>
             Bienvenue sur le site de l'Ecole Privée ! <br>
-            Celui-ci vous permettra de vous renseigner sur les formations disponivles prochainement
+            Celui-ci vous permettra de vous renseigner sur les formations disponibles prochainement
             et de vous y inscrire. <br>
             Attention à prendre en compte le lieu de dispense de chaque formation. <br>
             <br>
