@@ -91,7 +91,7 @@ public class CourseDao {
 
 
     public List<Course> getAllCoursesPerKeyWord (String keyword){
-		Session session = session = HibernateUtil.getSessionFactory().openSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		List<Course> courseList=null;
 
 		try {

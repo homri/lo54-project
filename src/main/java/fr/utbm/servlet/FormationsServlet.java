@@ -1,0 +1,63 @@
+package fr.utbm.servlet;
+
+import fr.utbm.controller.CourseController;
+import fr.utbm.controller.Course_sessionController;
+import fr.utbm.entity.Course;
+import fr.utbm.entity.Course_session;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
+
+/**
+ * Created by Mac-Guillaume on 25/05/16.
+ */
+@WebServlet(name = "FormationsServlet", value = "/formations")
+public class FormationsServlet extends HttpServlet {
+
+	private Course_sessionController course_sessionController = new Course_sessionController();
+	private CourseController courseController = new CourseController();
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType( "text/html" );
+		PrintWriter out = response.getWriter();
+
+		SimpleDateFormat formater = new SimpleDateFormat("dd MMMM yyyy");
+		List<Course> courses = courseController.getAllCourse();
+
+		out.println( "<HTML>" );
+		out.println( "<HEAD>");
+		out.println( "<TITLE>Liste formations</TITLE>" );
+		out.println( "</HEAD>" );
+		out.println( "<BODY>" );
+		out.println( "<H1>Liste des formations disponibles : </H1>" );
+
+		for (Course course : courses) {
+			out.println("<b>" + course.getCourse_code() + " - " + course.getTitle() + "</b>");
+			out.println("<br>");
+			for (Object object : course.getCourse_sessions()) {
+				Course_session course_session = (Course_session) object;
+				out.println("<a href='http://localhost:8080/inscription?id_session="
+						+ course_session.getCourse_session_id() + "'>Du "
+						+ formater.format(course_session.getStart_date()) + " au "
+						+ formater.format(course_session.getEnd_date()) + "</a>");
+			}
+			out.println("<br><br>");
+		}
+
+		out.println( "</BODY>" );
+		out.println( "</HTML>" );
+		out.close();	}
+}

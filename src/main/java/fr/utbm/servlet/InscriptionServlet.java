@@ -13,8 +13,8 @@ import java.io.PrintWriter;
 /**
  * Created by Mac-Guillaume on 21/05/16.
  */
-@WebServlet(name = "FormServlet", value = "/test")
-public class FormServlet extends HttpServlet {
+@WebServlet(name = "InscriptionServlet", value = "/inscription")
+public class InscriptionServlet extends HttpServlet {
 
 	private ClientController clientController = new ClientController();
 
@@ -44,6 +44,6 @@ public class FormServlet extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/jsp/home.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/inscription.jsp").forward(request, response);
 	}
 }
