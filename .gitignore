@@ -10,7 +10,7 @@ buildNumber.properties
 .idea/
 Project.iml
 src/main/resources/hibernate.cfg.xml
-/src/main/resources/fr/utbm/entity
+/src/main/resources/fr/utbm/entity/*
 
 # NetBeans specific #
 nbproject/private/
