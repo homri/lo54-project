@@ -35,7 +35,7 @@ public class FormationsServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		SimpleDateFormat formater = new SimpleDateFormat("dd MMMM yyyy");
-		List<Course> courses = courseController.getAllCourse();
+		List<Course> courses = courseController.getAllCourses();
 
 		out.println( "<HTML>" );
 		out.println( "<HEAD>");

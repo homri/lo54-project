@@ -97,7 +97,6 @@ public class CourseDao {
 		try {
 	        session.beginTransaction();
 			keyword=keyword.concat("%");
-			System.out.println("aaaaaa"+keyword);
 			Query query = session.createQuery("from Course where title like ?");
 			query.setString(0, keyword);
 			courseList = query.list();
@@ -135,7 +134,7 @@ public class CourseDao {
 	        session.beginTransaction();
 	        Query query = session.createQuery("select cr from Course as cr "
                                                 +"inner join cr.course_sessions as crs"
-                                                +" where ? <= crs.start_date");
+                                                +" where ? between crs.start_date and crs.end_date");
 			query.setDate(0, date);
 			courseList = query.list();
 
@@ -178,10 +177,165 @@ public class CourseDao {
 			query.setString(0, location.getCity());
 			courseList = query.list();
 
-			for(Iterator iterator1 = courseList.iterator();iterator1.hasNext();) {
-				Course cr = (Course)iterator1.next();
-				Hibernate.initialize(cr.getCourse_sessions());
+			functionIterator(courseList);
+			
+                        session.flush();
+	        session.getTransaction().commit();
+		} catch (HibernateException he) {
+	        he.printStackTrace();
+	        if(session.getTransaction() != null) { 
+	            try {
+	                session.getTransaction().rollback();	
+	            } catch(HibernateException he2) {he2.printStackTrace(); }
+	        }
+		}
+
+		finally {
+	        if(session != null) {
+	            try {
+					session.close();
+				} catch(SessionException se){
+					se.printStackTrace();
+				}
 			}
+		}
+		return courseList;
+	}
+    public List<Course> getAllCoursesAtDateLocation (Date date, Location location){
+        Session session = session = HibernateUtil.getSessionFactory().openSession();
+        List<Course> courseList=null;
+
+		try {
+	        session.beginTransaction();
+	        Query query = session.createQuery("select cr from Course as cr"
+                + "                        inner join cr.course_sessions as crs"
+                + "                        inner join crs.id_location as lc"
+                + "                        where (? between crs.start_date and crs.end_date) and lc.city = ? ");
+			query.setDate(0, date);
+                        query.setString(1, location.getCity());   
+			courseList = query.list();
+
+			functionIterator(courseList);
+                        
+			session.flush();
+	        session.getTransaction().commit();
+		} catch (HibernateException he) {
+	        he.printStackTrace();
+	        if(session.getTransaction() != null) { 
+	            try {
+	                session.getTransaction().rollback();	
+	            } catch(HibernateException he2) {he2.printStackTrace(); }
+	        }
+		}
+
+		finally {
+	        if(session != null) {
+	            try {
+					session.close();
+				} catch(SessionException se){
+					se.printStackTrace();
+				}
+			}
+		}
+		return courseList;
+	}
+    public List<Course> getAllCoursesPerKeyWordLocation ( String keyword, Location location){
+        Session session = session = HibernateUtil.getSessionFactory().openSession();
+        List<Course> courseList=null;
+
+		try {
+	        session.beginTransaction();
+                keyword=keyword.concat("%");
+	        Query query = session.createQuery("select cr from Course as cr"
+                + "                        inner join cr.course_sessions as crs"
+                + "                        inner join crs.id_location as lc"
+                + "                        where cr.title like ? and lc.city = ?");
+			query.setString(0, keyword);
+                        query.setString(1, location.getCity());
+			courseList = query.list();
+
+			functionIterator(courseList);
+                        
+			session.flush();
+	        session.getTransaction().commit();
+		} catch (HibernateException he) {
+	        he.printStackTrace();
+	        if(session.getTransaction() != null) { 
+	            try {
+	                session.getTransaction().rollback();	
+	            } catch(HibernateException he2) {he2.printStackTrace(); }
+	        }
+		}
+
+		finally {
+	        if(session != null) {
+	            try {
+					session.close();
+				} catch(SessionException se){
+					se.printStackTrace();
+				}
+			}
+		}
+		return courseList;
+	}
+    
+    public List<Course> getAllCoursesPerKeyWordDate (String keyword, Date date){
+        Session session = session = HibernateUtil.getSessionFactory().openSession();
+        List<Course> courseList=null;
+
+	    try {
+	        session.beginTransaction();
+                keyword=keyword.concat("%");
+	        Query query = session.createQuery("select cr from Course as cr "
+                                                +"inner join cr.course_sessions as crs"
+                                                +" where cr.title like ? and (? between crs.start_date and crs.end_date)");
+			query.setString(0, keyword);
+                        query.setDate(1, date);
+			courseList = query.list();
+
+			functionIterator(courseList);
+
+			session.flush();
+	        session.getTransaction().commit();
+		} catch (HibernateException he) {
+	        he.printStackTrace();
+	        if(session.getTransaction() != null) { 
+	            try {
+	                session.getTransaction().rollback();	
+	            } catch(HibernateException he2) {he2.printStackTrace(); }
+	        }
+		}
+
+		finally {
+	        if(session != null) {
+	            try {
+					session.close();
+				} catch(SessionException se){
+					se.printStackTrace();
+				}
+			}
+		}
+		return courseList;
+	}
+    
+    public List<Course> getAllCoursesPerKeyWordDateLocation (String keyword, Date date,Location location){
+        Session session = session = HibernateUtil.getSessionFactory().openSession();
+        List<Course> courseList=null;
+
+		try {
+	        session.beginTransaction();
+                keyword=keyword.concat("%");
+	        Query query = session.createQuery("select cr from Course as cr"
+                + "                        inner join cr.course_sessions as crs"
+                + "                        inner join crs.id_location as lc"
+                + "                        where cr.title like ? and (? between crs.start_date and crs.end_date) and lc.city = ?");
+			query.setString(0, keyword);
+                        query.setDate(1, date);
+                        query.setString(2, location.getCity());
+			courseList = query.list();
+
+			functionIterator(courseList);
+                        
 			session.flush();
 	        session.getTransaction().commit();
 		} catch (HibernateException he) {

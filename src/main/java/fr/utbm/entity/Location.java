@@ -23,6 +23,11 @@ public class Location {
         this.course_sessions = course_sessions;
     }
 
+    public Location(int id_location, String city) {
+        this.id_location = id_location;
+        this.city = city;
+    }
+
     public int getId_location() {
         return id_location;
     }

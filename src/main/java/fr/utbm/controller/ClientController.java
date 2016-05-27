@@ -21,13 +21,13 @@ public class ClientController {
 
     public void insertClientControllerWithoutEmail(int course_session_id, String lastname, String firstname, String adress, String phone){
         Course_sessionService crss = new Course_sessionService();
-        Course_session crs = crss.getCourse_sessionFromId(course_session_id);
+        Course_session crs = crss.getCourse_sessionFromIdService(course_session_id);
         Client cl = new Client(crs, lastname, firstname, adress, phone);
         cls.insertClientService(cl);
     }
     public void insertClientControllerWithEmail(int course_session_id, String lastname, String firstname, String adress, String phone, String email){
         Course_sessionService crss = new Course_sessionService();
-        Course_session crs = crss.getCourse_sessionFromId(course_session_id);
+        Course_session crs = crss.getCourse_sessionFromIdService(course_session_id);
         Client cl = new Client(crs, lastname, firstname, adress, phone, email);
         cls.insertClientService(cl);
     }

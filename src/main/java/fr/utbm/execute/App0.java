@@ -36,21 +36,22 @@ public class App0 {
 	 	clc.insertClientControllerWithoutEmail(1, "lahmade","felix","2 rue Sadeline","0782524183");
         HibernateUtil.getSessionFactory().close();
         */
-
+/*
 		Course_sessionController course_sessionController = new Course_sessionController();
 		for (Course_session course_session : course_sessionController.getAllCourse_session()) {
 			System.out.println(course_session.getCourse_code().getCourse_code() + " - " + course_session.getCourse_code().getTitle());
 		}
-
-        //CourseDao crd = new CourseDao();
+*/
+        CourseDao crd = new CourseDao();
         //List<Course> listecourses = crd.getAllCourses();
         //List<Course> listecourses = crd.getAllCoursesPerKeyWord("z");
-        /*Date d;
+        Date d;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         try {
-            d=simpleDateFormat.parse("2016-05-01");
-         	List<Course> listecourses = crd.getAllCoursesAtDate(d);
+            d=simpleDateFormat.parse("2016-06-10");
+            Location lcn = new Location(1, "Belfort");
+         	List<Course> listecourses = crd.getAllCoursesAtDateLocation(d,lcn);
          	System.out.println(listecourses.size());
         	if(listecourses.size()>0) {
         		System.out.println(listecourses.size()+" : "+listecourses.get(0).getTitle());
@@ -58,7 +59,7 @@ public class App0 {
 
         } catch (ParseException ex) {
             Logger.getLogger(App0.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
 
         /*Location lcn = new Location("Montbéliard", 1);
         
@@ -72,8 +73,8 @@ public class App0 {
         for(Iterator iterator1 = listecourses.get(0).getCourse_sessions().iterator();iterator1.hasNext();) {
             Course_session a=(Course_session)iterator1.next();
             System.out.println(a.getId_location().getCity());
-        }
+        }*/
         HibernateUtil.getSessionFactory().close();
-        */
+       
     }
 }
