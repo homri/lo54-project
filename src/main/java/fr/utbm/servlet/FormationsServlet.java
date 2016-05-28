@@ -4,6 +4,7 @@ import fr.utbm.controller.CourseController;
 import fr.utbm.controller.Course_sessionController;
 import fr.utbm.entity.Course;
 import fr.utbm.entity.Course_session;
+import fr.utbm.util.HibernateUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,7 +24,6 @@ import java.util.Set;
 @WebServlet(name = "FormationsServlet", value = "/formations")
 public class FormationsServlet extends HttpServlet {
 
-	private Course_sessionController course_sessionController = new Course_sessionController();
 	private CourseController courseController = new CourseController();
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -60,5 +60,6 @@ public class FormationsServlet extends HttpServlet {
 
 		out.println( "</BODY>" );
 		out.println( "</HTML>" );
-		out.close();	}
+		out.close();
+	}
 }
