@@ -56,6 +56,8 @@ public class InscriptionServlet extends HttpServlet {
 		out.println( "</BODY>" );
 		out.println( "</HTML>" );
 		out.close();
+
+
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

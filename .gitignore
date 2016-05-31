@@ -9,7 +9,6 @@ buildNumber.properties
 .mvn/timing.properties
 .idea/
 Project.iml
-src/main/resources/hibernate.cfg.xml
 /src/main/resources/fr/utbm/entity/*
 
 # NetBeans specific #
@@ -21,5 +20,6 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 hibernate.cfg.xml
+lib/
 /src/main/resources/hibernate.cfg.xml
 /Project.iml
