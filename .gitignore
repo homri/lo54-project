@@ -21,3 +21,5 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 hibernate.cfg.xml
+/src/main/resources/hibernate.cfg.xml
+/Project.iml
