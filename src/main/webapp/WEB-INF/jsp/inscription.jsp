@@ -8,9 +8,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE HTML>
 <html>
 <head>
     <title>Inscription session</title>
+	<link type="text/css" rel="stylesheet" href="styles/styles.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
     <h1>Inscription session</h1>
