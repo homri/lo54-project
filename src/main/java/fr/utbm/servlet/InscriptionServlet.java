@@ -35,10 +35,12 @@ public class InscriptionServlet extends HttpServlet {
 				request.getParameter("firstname"),
 				request.getParameter("address"),
 				request.getParameter("phone"));
-
+		out.println( "<!DOCTYPE HTML>");
 		out.println( "<HTML>" );
 		out.println( "<HEAD>");
 		out.println( "<TITLE>Insert client</TITLE>" );
+		out.println("        <link type=\"text/css\" rel=\"stylesheet\" href=\"styles/styles.css\" />\n" +
+				    "        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
 		out.println( "</HEAD>" );
 		out.println( "<BODY>" );
 		out.println( "<H1>Le client suivant à été ajouté : </H1>" );

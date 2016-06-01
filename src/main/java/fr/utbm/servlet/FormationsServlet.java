@@ -40,6 +40,8 @@ public class FormationsServlet extends HttpServlet {
 		out.println( "<HTML>" );
 		out.println( "<HEAD>");
 		out.println( "<TITLE>Liste formations</TITLE>" );
+		out.println("<link type=\"text/css\" rel=\"stylesheet\" href=\"styles/styles.css\" />\n");
+		out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
 		out.println( "</HEAD>" );
 		out.println( "<BODY>" );
 		out.println( "<H1>Liste des formations disponibles : </H1>" );
