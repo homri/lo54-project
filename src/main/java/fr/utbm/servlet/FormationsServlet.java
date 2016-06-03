@@ -56,7 +56,7 @@ public class FormationsServlet extends HttpServlet {
 			out.println("<br>");
 			for (Object object : course.getCourse_sessions()) {
 				Course_session course_session = (Course_session) object;
-				out.println("<a class=\"icon\" href='/inscription?id_session="
+				out.println("<a class=\"icon\" href='./inscription?id_session="
 						+ course_session.getCourse_session_id() + "'>Du "
 						+ formater.format(course_session.getStart_date()) + " au "
 						+ formater.format(course_session.getEnd_date()) + "<img src=\"styles/svg/add-button.svg\"></a> à "

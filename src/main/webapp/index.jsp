@@ -19,7 +19,7 @@
     <b>Force et travail, telle est notre devise !</b>
 </p>
 
-<a class="icon" href="/formations" id="consult">Consulter les formations<img
+<a class="icon" href="./formations" id="consult">Consulter les formations<img
         src="styles/svg/next-page.svg"></a>
 <div class="footer">
     <p>Ecole Privée - Copyright 2016</p>

@@ -22,7 +22,7 @@
 <body>
     <h1>Inscription session</h1>
 
-    <form action="/inscription" method="post" role="form">
+    <form action="./inscription" method="post" role="form">
     	<legend><%
 			SimpleDateFormat formater = new SimpleDateFormat("dd MMMM yyyy");
 			Course_sessionController course_sessionController = new Course_sessionController();

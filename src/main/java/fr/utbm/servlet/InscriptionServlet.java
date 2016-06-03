@@ -58,16 +58,14 @@ public class InscriptionServlet extends HttpServlet {
 				+ "<br>Phone : " + request.getParameter("phone")
 				+ "<br>Email : " + request.getParameter("email"));
 		out.println("<br><br>");
-		out.println("<a class=\"icon\" href='/formations'>Retour liste des sessions</a>");
+		out.println("<a class=\"icon\" href='./formations'>Retour liste des sessions</a>");
         out.println("<script src=\"../js/script.js\"></script>");
 		out.println( "</BODY>" );
 		out.println( "</HTML>" );
 		out.close();
-
-
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/jsp/inscription.jsp").forward(request, response);
+		request.getRequestDispatcher("./WEB-INF/jsp/inscription.jsp").forward(request, response);
 	}
 }
