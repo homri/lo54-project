@@ -1,10 +1,8 @@
 package fr.utbm.servlet;
 
 import fr.utbm.controller.CourseController;
-import fr.utbm.controller.Course_sessionController;
 import fr.utbm.entity.Course;
 import fr.utbm.entity.Course_session;
-import fr.utbm.util.HibernateUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,9 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by Mac-Guillaume on 25/05/16.
