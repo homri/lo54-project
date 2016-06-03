@@ -63,7 +63,13 @@
 
 		<div class="form-group">
 			<label for="phone">Phone </label>
-			<input type="text" class="form-control" name="phone" id="phone" placeholder="0123456789">
+			<input type="tel" class="form-control" name="phone" id="phone" placeholder="0123456789">
+		</div>
+
+		<div class="form-group">
+			<label for="email">Email </label>
+			<input type="email" class="form-control" name="email" id="email"
+				   placeholder="toto@gmail.com" size="50px">
 		</div>
 		<br>
     	<button type="submit" class="btn btn-primary">S'inscrire</button>

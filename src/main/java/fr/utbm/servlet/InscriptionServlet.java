@@ -29,12 +29,13 @@ public class InscriptionServlet extends HttpServlet {
 		Course_session course_session = course_sessionController.getCourse_sessionById(request.getParameter("id_session"));
 		PrintWriter out = response.getWriter();
 
-		clientController.insertClientControllerWithoutEmail(
+		clientController.insertClientControllerWithEmail(
 				Integer.parseInt(request.getParameter("id_session")),
 				request.getParameter("lastname"),
 				request.getParameter("firstname"),
 				request.getParameter("address"),
-				request.getParameter("phone"));
+				request.getParameter("phone"),
+				request.getParameter("email"));
 		out.println( "<!DOCTYPE HTML>");
 		out.println( "<HTML>" );
 		out.println( "<HEAD>");
@@ -55,7 +56,8 @@ public class InscriptionServlet extends HttpServlet {
 		out.println("Lastname : " +request.getParameter("lastname")
 				+ "<br>Firstname : " + request.getParameter("firstname")
 				+ "<br>Address : " +request.getParameter("address")
-				+ "<br>Phone : " + request.getParameter("phone"));
+				+ "<br>Phone : " + request.getParameter("phone")
+				+ "<br>Email : " + request.getParameter("email"));
 		out.println("<br><br>");
 		out.println("<a class=\"icon\" href='http://localhost:8080/formations'>Retour liste des sessions</a>");
         out.println("<script src=\"../js/script.js\"></script>");

@@ -28,6 +28,9 @@ import java.util.logging.Logger;
  */
 public class App0 {
     public static void main(String[] arg){
+
+
+
         /**
          * le travail dans la servlet pour ajouter un client
          */
