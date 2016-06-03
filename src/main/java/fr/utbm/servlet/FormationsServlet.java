@@ -44,13 +44,19 @@ public class FormationsServlet extends HttpServlet {
 		out.println( "</HEAD>" );
 		out.println( "<BODY>" );
 		out.println( "<H1>Liste des formations disponibles : </H1>" );
-
+		out.println("<div class=\"sort\"><span>Trier par :</span>" +
+                        "<ul class=\"sort-list\">" +
+                            "<li><a id=\"sort-by-date\">Date<img src=\"styles/svg/note.svg\"></a></li>" +
+                            "<li><a id=\"sort-by-place\">Lieu<img src=\"styles/svg/pin.svg\"></a></li>" +
+                            "<li><a id=\"sort-by-search\">Mot-Clé<img src=\"styles/svg/browser-visualization.svg\"></a></li>" +
+                        "</ul>" +
+                    "</div>");
 		for (Course course : courses) {
 			out.println("<b>" + course.getCourse_code() + " - " + course.getTitle() + "</b>");
 			out.println("<br>");
 			for (Object object : course.getCourse_sessions()) {
 				Course_session course_session = (Course_session) object;
-				out.println("<a class=\"icon\" href='http://localhost:8080/inscription?id_session="
+				out.println("<a class=\"icon\" href='/inscription?id_session="
 						+ course_session.getCourse_session_id() + "'>Du "
 						+ formater.format(course_session.getStart_date()) + " au "
 						+ formater.format(course_session.getEnd_date()) + "<img src=\"styles/svg/add-button.svg\"></a> à "
