@@ -39,6 +39,9 @@ public class InscriptionServlet extends HttpServlet {
 		out.println( "<HTML>" );
 		out.println( "<HEAD>");
 		out.println( "<TITLE>Insert client</TITLE>" );
+        out.println("<script src=\"../js/jquery.js\"></script>");
+		out.println("<script src=\"styles/bootstrap/js/bootstrap.min.js\" ></script>\n" +
+				" <link type=\"text/css\" rel=\"stylesheet\" href=\"styles/bootstrap/css/bootstrap.min.css\" />");
 		out.println("<link type=\"text/css\" rel=\"stylesheet\" href=\"styles/styles.css\" />\n");
 		out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
 		out.println( "</HEAD>" );
@@ -54,7 +57,8 @@ public class InscriptionServlet extends HttpServlet {
 				+ "<br>Address : " +request.getParameter("address")
 				+ "<br>Phone : " + request.getParameter("phone"));
 		out.println("<br><br>");
-		out.println("<a href='http://localhost:8080/formations'>Retour liste des sessions</a>");
+		out.println("<a class=\"icon\" href='http://localhost:8080/formations'>Retour liste des sessions</a>");
+        out.println("<script src=\"../js/script.js\"></script>");
 		out.println( "</BODY>" );
 		out.println( "</HTML>" );
 		out.close();

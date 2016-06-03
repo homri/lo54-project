@@ -2,6 +2,9 @@
 <html>
     <head>
         <title>Formations Ecole Privée</title>
+        <script src="../js/jquery.js"></script>
+        <script src="styles/bootstrap/js/bootstrap.min.js" ></script>
+        <link type="text/css" rel="stylesheet" href="styles/bootstrap/css/bootstrap.min.css" />
         <link type="text/css" rel="stylesheet" href="styles/styles.css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
@@ -16,9 +19,10 @@
             <b>Force et travail, telle est notre devise !</b>
         </p>
 
-        <a href="http://localhost:8080/formations" id="consult">Consulter les formations<img src="styles/svg/next-page.svg"></a>
+        <a class="icon" href="http://localhost:8080/formations" id="consult">Consulter les formations<img src="styles/svg/next-page.svg"></a>
         <div class="footer">
             <p>Ecole Privée - Copyright 2016</p>
         </div>
+        <script src="../js/script.js"></script>
     </body>
 </html>
