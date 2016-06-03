@@ -54,7 +54,7 @@ public class LocationDao {
 	}
 
 
-    public List<Location> getAllLocations () {
+    public static List<Location> getAllLocations() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         List<Location> locationList=null;
 

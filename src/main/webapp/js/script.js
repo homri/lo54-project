@@ -17,3 +17,31 @@ $('a.icon').hover(function () {
         duration: 'slow'
     }, 'linear');
 })
+
+$('ul.sort-list>li>a').click(function () {
+    var string="";
+    switch(this.getAttribute('id')) {
+        case "sort-by-date":
+            string="date-sorting";
+            break;
+        case "sort-by-place":
+            string="place-sorting";
+            break;
+        case "sort-by-search":
+            string="filter-sorting";
+            break;
+        default:
+            break;
+    }
+    $('.'+string).addClass("show");
+    $('body').append("<div class=\"back\"></div>");
+    $('.back').click(function () {
+        $('.back').remove();
+        $(".show").removeClass("show");
+    })
+
+    $('.close-modale').click(function () {
+        $('.back').remove();
+        $(".show").removeClass("show");
+    })
+})
