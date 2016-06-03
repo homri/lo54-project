@@ -8,9 +8,16 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE HTML>
 <html>
 <head>
     <title>Inscription session</title>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/script.js"></script>
+	<script src="styles/bootstrap/js/bootstrap.min.js" ></script>
+	<link type="text/css" rel="stylesheet" href="styles/bootstrap/css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="styles/styles.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
     <h1>Inscription session</h1>
@@ -67,5 +74,6 @@
 		<br>
     	<button type="submit" class="btn btn-primary">S'inscrire</button>
     </form>
+    <script src="../js/script.js"></script>
 </body>
 </html>

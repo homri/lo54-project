@@ -36,10 +36,15 @@ public class InscriptionServlet extends HttpServlet {
 				request.getParameter("address"),
 				request.getParameter("phone"),
 				request.getParameter("email"));
-
+		out.println( "<!DOCTYPE HTML>");
 		out.println( "<HTML>" );
 		out.println( "<HEAD>");
 		out.println( "<TITLE>Insert client</TITLE>" );
+        out.println("<script src=\"../js/jquery.js\"></script>");
+		out.println("<script src=\"styles/bootstrap/js/bootstrap.min.js\" ></script>\n" +
+				" <link type=\"text/css\" rel=\"stylesheet\" href=\"styles/bootstrap/css/bootstrap.min.css\" />");
+		out.println("<link type=\"text/css\" rel=\"stylesheet\" href=\"styles/styles.css\" />\n");
+		out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
 		out.println( "</HEAD>" );
 		out.println( "<BODY>" );
 		out.println( "<H1>Le client suivant à été ajouté : </H1>" );
@@ -54,7 +59,8 @@ public class InscriptionServlet extends HttpServlet {
 				+ "<br>Phone : " + request.getParameter("phone")
 				+ "<br>Email : " + request.getParameter("email"));
 		out.println("<br><br>");
-		out.println("<a href='http://localhost:8080/formations'>Retour liste des sessions</a>");
+		out.println("<a class=\"icon\" href='http://localhost:8080/formations'>Retour liste des sessions</a>");
+        out.println("<script src=\"../js/script.js\"></script>");
 		out.println( "</BODY>" );
 		out.println( "</HTML>" );
 		out.close();
